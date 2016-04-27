@@ -8,9 +8,11 @@
 #include <stdlib.h>
 
 void *mm_malloc(size_t size) {
-  static size_t mapregsz;
+  static block*base=NULL;
   struct block*b;
-  for(b=base;b!=NULL&&b->next!=NULL;b=b->next)
+  for(b=base;b!=NULL&&b->next!=NULL;b=b->next);
+
+  sbrk(size);
   return NULL;
 }
 
