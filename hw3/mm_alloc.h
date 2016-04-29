@@ -6,14 +6,13 @@
 
 #pragma once
 
-#include <stdlib.h>
+#include<stdlib.h>
 
 struct block {
   struct block*prev,*next;
-  int free; size_t size;
-  char mem[];
+  char free; size_t size; char mem[0];
 };
 
-void *mm_malloc(size_t size);
-void *mm_realloc(void*ptr,size_t size);
-void  mm_free(void*ptr);
+void*mm_malloc(size_t);
+void*mm_realloc(void*,size_t);
+void mm_free(void*);
