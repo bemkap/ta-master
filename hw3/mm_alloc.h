@@ -8,10 +8,10 @@
 
 #include<stdlib.h>
 
-struct block {
-  struct block*prev,*next;
+typedef struct _block {
+  struct _block*prev,*next;
   char free; size_t size; char mem[0];
-};
+} block;
 
 void*mm_malloc(size_t);
 void*mm_realloc(void*,size_t);
